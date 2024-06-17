@@ -18,6 +18,12 @@ function generateTaskId() {
       id += charset[values[i] % charset.length];
     }
   }
+  else {
+    // Fallback to Math.random() if crypto API is not supported
+    for (let i = 0; i < length; i++) {
+      id += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+  }
 }
 
 // Todo: create a function to create a task card
