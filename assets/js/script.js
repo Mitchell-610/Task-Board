@@ -10,6 +10,14 @@ const saveBtn = $(`#saveBtn`);
 function generateTaskId() {
   const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let id = '';
+  if (window.crypto && window.crypto.getRandomValues) {
+    let values = new Uint32Array(length);
+    window.crypto.getRandomValues(values);
+    
+    for (let i = 0; i < length; i++) {
+      id += charset[values[i] % charset.length];
+    }
+  }
 }
 
 // Todo: create a function to create a task card
