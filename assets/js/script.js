@@ -26,7 +26,7 @@ function generateTaskId() {
   }
   console.log(id);
   return id;
-}
+};
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
@@ -42,8 +42,11 @@ const cardDeleteBtn = $('<button>')
   .text('Delete')
   .attr('data-task-id', task.id);
   cardDeleteBtn.on('click', handleDeleteTask);
-
-}
+  if (task.dueDate && task.status !== 'done') {
+    const now = dayjs();
+    const taskDueDate = dayjs(task.dueDate, 'DD/MM/YYYY');
+  }
+};
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
