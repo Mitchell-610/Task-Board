@@ -8,7 +8,8 @@ const saveBtn = $(`#saveBtn`);
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
-
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let id = '';
 }
 
 // Todo: create a function to create a task card
