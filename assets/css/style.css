@@ -14,4 +14,9 @@ body {
   .task-card:hover {
     cursor: grab;
   }
-  
+
+
+  #taskEntry {
+    display: grid;
+    text-align: center;
+  }
