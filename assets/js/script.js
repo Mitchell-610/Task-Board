@@ -24,6 +24,8 @@ function generateTaskId() {
       id += charset.charAt(Math.floor(Math.random() * charset.length));
     }
   }
+  console.log(id);
+  return id;
 }
 
 // Todo: create a function to create a task card
