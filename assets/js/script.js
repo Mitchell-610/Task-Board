@@ -80,6 +80,21 @@ function renderTaskList() {
         doneList.append(createTaskCard(task));
     }
 }
+$('.draggable').draggable({
+  opacity: 0.7,
+  zIndex: 100,
+  // ? This is the function that creates the clone of the card that is dragged. This is purely visual and does not affect the data.
+  helper: function (e) {
+      // ? Check if the target of the drag event is the card itself or a child element. If it is the card itself, clone it, otherwise find the parent card  that is draggable and clone that.
+      const original = $(e.target).hasClass('ui-draggable')
+          ? $(e.target)
+          : $(e.target).closest('.ui-draggable');
+      // ? Return the clone with the width set to the width of the original card. This is so the clone does not take up the entire width of the lane. This is to also fix a visual bug where the card shrinks as it's dragged to the right.
+      return original.clone().css({
+          width: original.outerWidth(),
+      });
+  },
+})
 }
 
 // Todo: create a function to handle adding a new task
