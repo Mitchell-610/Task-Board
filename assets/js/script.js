@@ -130,6 +130,7 @@ function handleDeleteTask(event){
 function handleDrop(event, ui) {
   const tasks = readTasksFromStorage();
   const taskId = ui.draggable[0].dataset.taskId;
+  const newStatus = event.target.id;
 
 
 }
