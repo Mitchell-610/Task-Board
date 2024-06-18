@@ -128,6 +128,8 @@ function handleDeleteTask(event){
 
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
+  const tasks = readTasksFromStorage();
+
 
 }
 
