@@ -115,6 +115,7 @@ function handleAddTask(event){
   const tasks = readTasksFromStorage();
   tasks.push(newTask);
   saveProjectsToStorage(tasks);
+  renderTaskList();
 
 }
 
