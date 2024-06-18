@@ -116,7 +116,9 @@ function handleAddTask(event){
   tasks.push(newTask);
   saveProjectsToStorage(tasks);
   renderTaskList();
-
+  taskTitleInputEl.val('');
+  taskDescriptionInputEl.val('');
+  taskDateInputEl.val('');
 }
 
 // Todo: create a function to handle deleting a task
