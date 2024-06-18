@@ -114,6 +114,8 @@ function handleAddTask(event){
   };
   const tasks = readTasksFromStorage();
   tasks.push(newTask);
+  saveProjectsToStorage(tasks);
+
 }
 
 // Todo: create a function to handle deleting a task
