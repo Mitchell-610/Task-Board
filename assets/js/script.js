@@ -104,7 +104,7 @@ function handleAddTask(event){
   const taskName = taskTitleInputEl.val().trim();
   const taskType = taskDescriptionInputEl.val();
   const taskDate = taskDateInputEl.val();
-  
+
   const newTask = {
     // ? Here we use a Web API called `crypto` to generate a random id for our project. This is a unique identifier that we can use to find the project in the array. `crypto` is a built-in module that we can use in the browser and Nodejs.    id: crypto.randomUUID(),
     name: taskName,
@@ -112,6 +112,8 @@ function handleAddTask(event){
     dueDate: taskDate,
     status: 'to-do',
   };
+  const tasks = readTasksFromStorage();
+  tasks.push(newTask);
 }
 
 // Todo: create a function to handle deleting a task
