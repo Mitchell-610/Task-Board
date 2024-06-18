@@ -99,7 +99,11 @@ $('.draggable').draggable({
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+  event.preventDefault();
 
+  const taskName = taskTitleInputEl.val().trim();
+  const taskType = taskDescriptionInputEl.val();
+  const taskDate = taskDateInputEl.val();
 }
 
 // Todo: create a function to handle deleting a task
