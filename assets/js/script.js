@@ -14,7 +14,10 @@ function saveTasksToStorage(tasks) {
 
 function readTasksFromStorage() {
   let tasks = JSON.parse(localStorage.getItem('tasks'));
-
+  if (!tasks) {
+    tasks = [];
+  }
+  return tasks;
 }
 
 // Todo: create a function to generate a unique task id
