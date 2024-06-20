@@ -134,6 +134,15 @@ function handleDeleteTask(event){
   const taskId = $(this).attr('data-task-id');
   const tasks = readTasksFromStorage();
 
+  tasks.forEach((task) => {
+    if (task.id === taskId) {
+      tasks.splice(tasks.indexOf(task), 1);
+    }
+  });
+
+  saveTasksToStorage(tasks);
+
+  renderTaskList();
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
