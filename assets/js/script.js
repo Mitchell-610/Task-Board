@@ -5,6 +5,7 @@ const taskTitleInputEl = $('#title');
 const taskDescriptionInputEl = $('#description');
 const taskDateInputEl = $('#date');
 const saveBtn = $(`#saveBtn`);
+let tasks = [];
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
@@ -62,6 +63,7 @@ const cardDeleteBtn = $('<button>')
 function renderTaskList() {
   const tasks = readTasksFromStorage();
 
+
   const todoList = $('#todo-cards');
   todoList.empty();
 
@@ -114,21 +116,26 @@ function handleAddTask(event){
   };
   const tasks = readTasksFromStorage();
   tasks.push(newTask);
-  saveProjectsToStorage(tasks);
+  saveTasksToStorage(tasks);
   renderTaskList();
   taskTitleInputEl.val('');
   taskDescriptionInputEl.val('');
   taskDateInputEl.val('');
+  $('#exampleModal').modal('hide');
+  console.log(`Btn pusshed`);
+
 }
 
-// Todo: create a function to handle deleting a task
+$('#saveBtn').on('click', handleAddTask);
+
+
 function handleDeleteTask(event){
 
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
-  const tasks = readTasksFromStorage();
+  const tasks = taskList;
   const taskId = ui.draggable[0].dataset.taskId;
   const newStatus = event.target.id;
   for (let task of tasks) {
