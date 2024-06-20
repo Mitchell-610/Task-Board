@@ -7,7 +7,6 @@ const taskDateInputEl = $('#date');
 const saveBtn = $(`#saveBtn`);
 let tasks = [];
 
-
 function saveTasksToStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -19,6 +18,7 @@ function readTasksFromStorage() {
   }
   return tasks;
 }
+
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
