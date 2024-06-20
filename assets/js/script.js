@@ -130,6 +130,9 @@ $('#saveBtn').on('click', handleAddTask);
 
 
 function handleDeleteTask(event){
+  event.preventDefault();
+  const taskId = $(this).attr('data-task-id');
+  const tasks = readTasksFromStorage();
 
 }
 
